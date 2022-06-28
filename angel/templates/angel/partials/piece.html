@@ -1,0 +1,63 @@
+<div class="recipe recipe-list-item">
+    {% if clothes.cover.url is not Null %}
+        <div class="recipe-cover">
+            <a href="{% url 'angel:piece' clothes.id %}">
+                <img src="{{ clothes.cover.url }}" alt="" />
+            </a>
+        </div>
+    {% endif %}
+    <div class="recipe-title-container">
+        <h2 class="recipe-title">
+            <a href="{% url 'angel:piece' clothes.id %}">
+                {{ clothes.title }}
+            </a>
+        </h2>
+        <div class="recipe-author">
+            <span class="recipe-author-item">
+                <i class="fas fa-user"></i>
+                {% if clothes.author is not None %}
+                    {% if clothes.author.first_name %}
+                        {{ clothes.author.first_name }} {{ clothes.author.last_name }}
+                    {% else %}
+                        {{ clothes.author.username }}
+                    {% endif %}
+                {% else %}
+                    Desconhecido
+                {% endif %}
+            </span>
+            <span class="recipe-author-item">
+                <i class="fas fa-calendar-alt"></i>
+                {{clothes.created_at|date:"d/m/Y" }} às {{ clothes.created_at|date:"H:i" }}
+            </span>
+
+            {% if clothes.category is not None %}
+                    <span class="recipe-author-item">
+                    <a href="{% url 'angel:category' clothes.category.id %}">
+                        <i class="fas fa-socks"></i>
+                        <span>{{ clothes.category.name }}</span>
+                    </a>
+                </span>
+            {% endif %}
+
+            <p class="recipe-author-item">
+                <i class="fas fa-user-astronaut"></i>
+                Length: {{ clothes.length }}
+            </p>
+
+        </div>
+    </div>
+    <div class="recipe-content">
+        <p>
+            {{ clothes.description }}
+        </p>
+    </div>
+
+    {% if is_detail_page is not True %}
+        <footer class="recipe-footer">
+            <a class="recipe-read-more button button-dark button-full-width" href="{% url 'angel:piece' clothes.id %}">
+                <i class="fas fa-eye"></i>
+                <span>ver mais...</span>
+            </a>
+        </footer>
+    {% endif %}
+</div>
