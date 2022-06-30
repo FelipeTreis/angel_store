@@ -12,7 +12,7 @@ class Category(models.Model):
 class Clothes(models.Model):
     title = models.CharField(max_length=65)
     description = models.CharField(max_length=165)
-    length = models.CharField(max_length=4)
+    length = models.CharField(max_length=100)
     slug = models.SlugField(unique=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
