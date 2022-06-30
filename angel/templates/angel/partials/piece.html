@@ -12,19 +12,7 @@
                 {{ clothes.title }}
             </a>
         </h2>
-        <div class="recipe-author">
-            <span class="recipe-author-item">
-                <i class="fas fa-user"></i>
-                {% if clothes.author is not None %}
-                    {% if clothes.author.first_name %}
-                        {{ clothes.author.first_name }} {{ clothes.author.last_name }}
-                    {% else %}
-                        {{ clothes.author.username }}
-                    {% endif %}
-                {% else %}
-                    Desconhecido
-                {% endif %}
-            </span>
+        <div class="recipe-author-item">
             <span class="recipe-author-item">
                 <i class="fas fa-calendar-alt"></i>
                 {{clothes.created_at|date:"d/m/Y" }} às {{ clothes.created_at|date:"H:i" }}
