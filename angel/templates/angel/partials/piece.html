@@ -38,12 +38,14 @@
                     </a>
                 </span>
             {% endif %}
-
-            <p class="recipe-author-item">
-                <i class="fas fa-user-astronaut"></i>
-                Length: {{ clothes.length }}
-            </p>
-
+        </div>
+    </div>
+    <div class="recipe-meta-container">
+        <div class="recipe-meta recipe-servings">
+            <h3 class="recipe-meta-title">
+                <i class="fas fa-user-astronaut"></i> Sizes Availabe
+            </h3>
+            <div class="recipe-meta-text">{{ clothes.length }}</div> 
         </div>
     </div>
     <div class="recipe-content">
@@ -51,7 +53,6 @@
             {{ clothes.description }}
         </p>
     </div>
-
     {% if is_detail_page is not True %}
         <footer class="recipe-footer">
             <a class="recipe-read-more button button-dark button-full-width" href="{% url 'angel:piece' clothes.id %}">
