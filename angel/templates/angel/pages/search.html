@@ -8,8 +8,10 @@
         {% include 'angel/partials/piece.html' %}
     {% empty %}
         <div class="margin">
-            <h1>No clothes found here 😭</h1>
+            <h1>Não achamos nada referente a está pesquisa: {{search_term}} 😭</h1>     
+            <a class="back" href="{% url 'angel:home' %}"><i class="fas fa-backward"></i> Voltar</a>
         </div>
     {% endfor %}
 </div>
+
 {% endblock content %}

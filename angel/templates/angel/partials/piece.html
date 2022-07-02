@@ -31,7 +31,7 @@
     <div class="recipe-meta-container">
         <div class="recipe-meta recipe-servings">
             <h3 class="recipe-meta-title">
-                <i class="fas fa-ruler"></i> Sizes Availabe
+                <i class="fas fa-ruler"></i> Tamanhos disponíveis
             </h3>
             <div class="recipe-meta-text">{{ clothes.length }}</div> 
         </div>
@@ -40,7 +40,7 @@
         <footer class="recipe-footer">
             <a class="recipe-read-more button button-dark button-full-width" href="{% url 'angel:piece' clothes.id %}">
                 <i class="fas fa-eye"></i>
-                <span>see more...</span>
+                <span>Veja mais...</span>
             </a>
         </footer>
     {% endif %}
@@ -50,6 +50,7 @@
                 {{ clothes.description }}
             </p>
         </div>
+        <a class="back" href="{% url 'angel:home' %}"><i class="fas fa-backward"></i> Voltar</a>
     {% endif %}
-    
+
 </div>

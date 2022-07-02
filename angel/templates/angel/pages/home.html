@@ -1,6 +1,6 @@
 {% extends 'global/base.html' %}
 
-{% block title %} Home | {% endblock title %} 
+{% block title %} Início | {% endblock title %} 
 
 {% block content %}
 <div class="main-content main-content-list container">
@@ -8,7 +8,7 @@
         {% include 'angel/partials/piece.html' %}
     {% empty %}
         <div class="margin">
-            <h1>No clothes found here 😭</h1>
+            <h1>Não achamos nada aqui 😭</h1>
         </div>
     {% endfor %}
 </div>
