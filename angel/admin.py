@@ -1,9 +1,9 @@
 from django.contrib import admin
 
-from angel.models import Category, Clothes
+from angel.models import Category, Clothe
 
 
-@admin.register(Clothes)
+@admin.register(Clothe)
 class ClothesAdmin(admin.ModelAdmin):
     pass
 
