@@ -2,11 +2,11 @@ from django.db.models import Q
 from django.http import Http404
 from django.shortcuts import get_list_or_404, get_object_or_404, render
 
-from angel.models import Clothe
+from angel.models import Clothes
 
 
 def home(request):
-    clothes = Clothe.objects.filter(
+    clothes = Clothes.objects.filter(
         is_published=True,).order_by('-id')
 
     return render(request, 'angel/pages/home.html', context={
@@ -15,7 +15,7 @@ def home(request):
 
 
 def category(request, category_id):
-    clothes = get_list_or_404(Clothe.objects.filter(
+    clothes = get_list_or_404(Clothes.objects.filter(
         category__id=category_id, is_published=True,).order_by('-id'))
 
     return render(request, 'angel/pages/category.html', context={
@@ -25,7 +25,7 @@ def category(request, category_id):
 
 
 def piece(request, id):
-    clothes = get_object_or_404(Clothe, pk=id, is_published=True)
+    clothes = get_object_or_404(Clothes, pk=id, is_published=True)
 
     return render(request, 'angel/pages/piece-view.html', context={
         'clothes': clothes,
@@ -39,7 +39,7 @@ def search(request):
     if not search_term:
         raise Http404()
 
-    clothes = Clothe.objects.filter(
+    clothes = Clothes.objects.filter(
         Q(
             Q(title__icontains=search_term) |
             Q(description__icontains=search_term),
