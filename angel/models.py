@@ -14,6 +14,9 @@ class Clothes(models.Model):
     description = models.CharField(max_length=165)
     length = models.CharField(max_length=100)
     value = models.DecimalField(max_digits=6, decimal_places=2, default=0.00)
+    qty_parcel = models.IntegerField(null=True, blank=True)
+    value_parcel = models.DecimalField(
+        max_digits=6, decimal_places=2, default=0.00, null=True, blank=True)
     slug = models.SlugField(unique=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
