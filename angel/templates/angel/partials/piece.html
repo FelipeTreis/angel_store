@@ -1,33 +1,34 @@
 <div class="recipe recipe-list-item">
-    {% if clothes.cover.url is not Null %}
+    {% if clothe.cover.url is not Null %}
         <div class="recipe-cover">
-            <a href="{% url 'angel:piece' clothes.id %}">
-                <img src="{{ clothes.cover.url }}" alt="" />
+            <a href="{% url 'angel:piece' clothe.id %}">
+                <img src="{{ clothe.cover.url }}" alt="" />
             </a>
         </div>
     {% endif %}
     <div class="recipe-title-container">
         <h2 class="recipe-title">
-            <a href="{% url 'angel:piece' clothes.id %}">
-                {{ clothes.title }}
+            <a href="{% url 'angel:piece' clothe.id %}">
+                {{ clothe.title }}
             </a>
         </h2>
         <div class="recipe-author-item">
             <span class="recipe-author-item">
                 <i class="fas fa-calendar-alt"></i>
-                {{clothes.created_at|date:"d/m/Y" }} às {{ clothes.created_at|date:"H:i" }}
+                {{clothe.created_at|date:"d/m/Y" }} às {{ clothe.created_at|date:"H:i" }}
             </span>
 
-            {% if clothes.category is not None %}
+            {% if clothe.category is not None %}
                     <span class="recipe-author-item">
-                    <a href="{% url 'angel:category' clothes.category.id %}">
+                    <a href="{% url 'angel:category' clothe.category.id %}">
                         <i class="fas fa-socks"></i>
-                        <span>{{ clothes.category.name }}</span>
+                        <span>{{ clothe.category.name }}</span>
                     </a>
                 </span>
             {% endif %}
             <p class="value">
-                Valor: R${{ clothes.value }}
+                Valor: R${{ clothe.value }}<br>
+                Parcelas: {{ clothe.qty_parcel }}X de R${{ clothe.value_parcel }}
             </p>
         </div>
     </div>
@@ -36,12 +37,12 @@
             <h3 class="recipe-meta-title">
                 <i class="fas fa-ruler"></i> Tamanhos disponíveis
             </h3>
-            <div class="recipe-meta-text">{{ clothes.length }}</div> 
+            <div class="recipe-meta-text">{{ clothe.length }}</div> 
         </div>
     </div>   
     {% if is_detail_page is not True %}
         <footer class="recipe-footer">
-            <a class="recipe-read-more button button-dark button-full-width" href="{% url 'angel:piece' clothes.id %}">
+            <a class="recipe-read-more button button-dark button-full-width" href="{% url 'angel:piece' clothe.id %}">
                 <i class="fas fa-eye"></i>
                 <span>Veja mais...</span>
             </a>
@@ -50,7 +51,10 @@
     {% if is_detail_page is True %}
         <div class="recipe-content preparation-steps">
             <p>
-                {{ clothes.description }}
+                {{ clothe.description }}
+            </p><br>
+            <p>
+                Se interessou?! Entre em contato!
             </p>
         </div>
         <a class="back" href="{% url 'angel:home' %}"><i class="fas fa-backward"></i> Voltar</a>
