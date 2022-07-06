@@ -26,12 +26,19 @@
                     </a>
                 </span>
             {% endif %}
-            <p class="value">
-                Valor: R${{ clothe.value }}<br>
-                Parcelas: {{ clothe.qty_parcel }}X de R${{ clothe.value_parcel }}
-            </p>
         </div>
     </div>
+
+    <div class="recipe-value-container">
+        <div class="recipe-servings">
+            <h3 class="recipe-meta-title">
+                <i class="fas fa-money-bill"></i> Valores
+            </h3>
+                <div class="recipe-meta-text">A vista: R${{ clothe.value }} ou</div>
+                <div class="recipe-meta-text">Parcelado: {{ clothe.qty_parcel }}X de R${{ clothe.value_parcel }}</div>
+        </div>
+    </div>   
+
     <div class="recipe-meta-container">
         <div class="recipe-meta recipe-servings">
             <h3 class="recipe-meta-title">
