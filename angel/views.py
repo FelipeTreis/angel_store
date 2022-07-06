@@ -25,10 +25,10 @@ def category(request, category_id):
 
 
 def piece(request, id):
-    clothes = get_object_or_404(Clothes, pk=id, is_published=True)
+    clothe = get_object_or_404(Clothes, pk=id, is_published=True)
 
     return render(request, 'angel/pages/piece-view.html', context={
-        'clothes': clothes,
+        'clothe': clothe,
         'is_detail_page': True,
     })
 
