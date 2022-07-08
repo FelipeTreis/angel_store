@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  db:
+    container_name: angel
+    image: postgres:14.2-alpine3.15
+    restart: always
+    volumes:
+    - ./.pgdata:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+    ports: 
+      - 5432:5432
+
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/angel_store
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
