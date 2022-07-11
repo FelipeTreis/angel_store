@@ -19,7 +19,7 @@
             </span>
 
             {% if clothe.category is not None %}
-                    <span class="recipe-author-item">
+                <span class="recipe-author-item">
                     <a href="{% url 'angel:category' clothe.category.id %}">
                         <i class="fas fa-socks"></i>
                         <span>{{ clothe.category.name }}</span>
@@ -28,7 +28,7 @@
             {% endif %}
         </div>
     </div>
-
+    
     <div class="recipe-value-container">
         <div class="recipe-servings">
             <h3 class="recipe-meta-title">

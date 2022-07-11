@@ -10,8 +10,16 @@ class Category(models.Model):
 
 
 class Clothes(models.Model):
+    GENDER_CHOICES = (
+        ('Female', 'Female'),
+        ('Male', 'Male'),
+        ('Unisex', 'Unisex')
+    )
     title = models.CharField(max_length=65)
     description = models.CharField(max_length=165)
+    gender = models.CharField(
+        max_length=6, choices=GENDER_CHOICES,
+        blank=False, null=False, default='Unisex')
     length = models.CharField(max_length=100)
     value = models.DecimalField(max_digits=6, decimal_places=2, default=0.00)
     qty_parcel = models.IntegerField(null=True, blank=True)
