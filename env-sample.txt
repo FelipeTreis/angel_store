@@ -1,0 +1,16 @@
+SECRET_KEY=CHANGE ME
+DEBUG=True
+
+# Database settings
+# Sqlite
+DATABASE_ENGINE=django.db.backends.sqlite3
+DATABASE_NAME=./db.sqlite3
+
+# Postgres
+# DATABASE_ENGINE='django.db.backends.postgresql'
+# DATABASE_NAME=DB
+
+DATABASE_USER=USER
+DATABASE_PASSWORD=PASSWORD
+DATABASE_HOST=000.0.0.0
+DATABASE_PORT=0000
