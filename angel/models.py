@@ -1,3 +1,4 @@
+from brand.models import Brand
 from django.contrib.auth.models import User
 from django.db import models
 
@@ -10,6 +11,10 @@ class Category(models.Model):
 
 
 class Clothes(models.Model):
+    class Meta:
+        verbose_name = 'Clothes'
+        verbose_name_plural = 'Clothes'
+
     GENDER_CHOICES = (
         ('Female', 'Female'),
         ('Male', 'Male'),
@@ -38,6 +43,7 @@ class Clothes(models.Model):
     author = models.ForeignKey(
         User, on_delete=models.SET_NULL, null=True
     )
+    brands = models.ManyToManyField(Brand)
 
     def __str__(self):
         return self.title

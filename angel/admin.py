@@ -12,6 +12,7 @@ class ClothesAdmin(admin.ModelAdmin):
     list_per_page = 10
     list_editable = ('is_published',)
     prepopulated_fields = {"slug": ('title',)}
+    autocomplete_fields = 'brands',
 
 
 class CategoryAdmin(admin.ModelAdmin):
