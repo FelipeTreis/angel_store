@@ -6,6 +6,10 @@ from django.utils.text import slugify
 
 
 class Brand(models.Model):
+    class Meta:
+        verbose_name = 'Marca'
+        verbose_name_plural = 'Marcas'
+
     brand = models.CharField(max_length=30)
     slug = models.SlugField(unique=True)
 
