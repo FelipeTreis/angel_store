@@ -42,7 +42,9 @@ def search(request):
     clothes = Clothes.objects.filter(
         Q(
             Q(title__icontains=search_term) |
-            Q(description__icontains=search_term),
+            Q(description__icontains=search_term) |
+            Q(gender__icontains=search_term) |
+            Q(slug__icontains=search_term),
         ), is_published=True
     ).order_by('-id')
 
