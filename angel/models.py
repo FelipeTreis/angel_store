@@ -45,13 +45,13 @@ class Clothes(models.Model):
     cover = models.ImageField(
         'Imagem', upload_to='recipes/covers/%Y/%m/%d/', blank=True, default='')
     category = models.ForeignKey(
-        Category,  on_delete=models.SET_NULL, null=True,
-        blank=True, default=None,
+        Category, verbose_name='Categoria', on_delete=models.SET_NULL,
+        null=True, blank=True, default=None,
     )
     author = models.ForeignKey(
-        User, on_delete=models.SET_NULL, null=True
+        User, on_delete=models.SET_NULL, verbose_name='Autor', null=True
     )
-    brands = models.ManyToManyField(Brand)
+    brands = models.ManyToManyField(Brand, verbose_name='Marca')
 
     def __str__(self):
         return self.title
