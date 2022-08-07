@@ -26,7 +26,7 @@ class Clothes(models.Model):
         ('Unisex', 'Unisex')
     )
     title = models.CharField('Título', max_length=65)
-    description = models.CharField('Descrição', max_length=165)
+    description = models.TextField('Descrição')
     gender = models.CharField(
         'Gênero', max_length=9, choices=GENDER_CHOICES,
         blank=False, null=False, default='Unisex')
